@@ -1,0 +1,23 @@
+:root {
+  --yellow: #ffc600;
+  --black: #272727;
+  --blue: #664aff;
+  --black: #25252a;
+  --red: rgb(255, 0, 68);
+  --dark-blue: #150b4d;
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: var(--dark-blue);
+}
+.main-calculator {
+	margin: 30px auto;
+	border: 2px solid white;
+	height: 90vh;
+	width: 25%;
+}
