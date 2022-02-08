@@ -5,30 +5,39 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
+	<script src="script.js" defer></script>
 	<title>Good Old Calculator</title>
 </head>
 <body>
 	<div class="main-calculator">
 		<div class="screen-and-buttons">
-			<div class="screen"></div>
-			<div class="btn btn-clear">CLEAR</div>
-			<div class="btn btn-delete">DELETE</div>
-			<div class="btn btn-7">7</div>
-			<div class="btn btn-8">8</div>
-			<div class="btn btn-9">9</div>
-			<div class="btn btn-divide">/</div>
-			<div class="btn btn-4">4</div>
-			<div class="btn btn-5">5</div>
-			<div class="btn btn-6">6</div>
-			<div class="btn btn-multiply">*</div>
-			<div class="btn btn-1">1</div>
-			<div class="btn btn-2">2</div>
-			<div class="btn btn-3">3</div>
-			<div class="btn btn-subtract">-</div>
-			<div class="btn btn-point">.</div>
-			<div class="btn btn-0">0</div>
-			<div class="btn btn-equals">=</div>
-			<div class="btn btn-add">+</div>
+			<div class="screen">
+				<div class="upperScreen"></div>
+				<div class="lowerScreen">0</div>
+			</div>
+
+			<button class="btn clear btn-clear">CLEAR</button>
+			<button class="btn delete btn-delete">DELETE</button>
+
+			<button class="btn numbers btn-7">7</button>
+			<button class="btn numbers btn-8">8</button>
+			<button class="btn numbers btn-9">9</button>
+			<button class="btn operators btn-buttonide">÷</button>
+
+			<button class="btn numbers btn-4">4</button>
+			<button class="btn numbers btn-5">5</button>
+			<button class="btn numbers btn-6">6</button>
+			<button class="btn operators btn-multiply">×</button>
+
+			<button class="btn numbers btn-1">1</button>
+			<button class="btn numbers btn-2">2</button>
+			<button class="btn numbers btn-3">3</button>
+			<button class="btn operators btn-subtract">-</button>
+			
+			<button class="btn btn-point">.</button>
+			<button class="btn numbers btn-0">0</button>
+			<button class="btn operators btn-equals">=</button>
+			<button class="btn operators btn-add">+</button>
 	</div>
 		
 </body>

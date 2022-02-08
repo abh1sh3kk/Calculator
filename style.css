@@ -5,7 +5,6 @@
   --black: #25252a;
   --red: rgb(255, 0, 68);
   --dark-blue: #150b4d;
-
   --background: #f6f6f6;
   --font: #222;
   --border: #333;
@@ -36,14 +35,13 @@ body {
 
   display: flex;
   justify-content: center;
-
-  border: 2px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: 15px; 	
   height: 648px;
   width: 445px;
   padding: 20px;
   margin: 20px auto;
-  box-shadow: 2px 2px 7px black;
+  /* box-shadow: 2px 2px 7px black; */
   background-color: var(--calculator);
 }
 .screen-and-buttons {
@@ -54,24 +52,38 @@ body {
   grid-template-rows: repeat(7, 1fr);
   grid-template-columns: repeat(4, 1fr);
 }
-.screen-and-buttons > div {
+.screen-and-buttons > button {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 27px;
+  font-size: 20px;
   background-color: var(--btn);
   border-radius: 5px;
-  border: 2px solid black;
+  border: 1px solid black;
+  letter-spacing: 3px;
 }
-.screen {
+.main-calculator > .screen-and-buttons > .screen {
   grid-row: span 2;
   grid-column: span 4;
   margin: 5px 0px;
   background-color: var(--screen);
+  font-size: 50px;
+  padding: 15px;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+  border-radius: 5px;
+}
+.main-calculator > .screen-and-buttons > .screen > .upperScreen {
+   align-items: flex-start;
+  justify-content: flex-end;
+  font-size: 30px;
 }
 
 .btn:hover {
 	background-color: var(--btn-hover);
+  cursor: pointer;
 }
 .btn-clear,
 .btn-delete {
