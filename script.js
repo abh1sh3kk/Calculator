@@ -10,6 +10,40 @@ let savedOperator = "";
 buttons.addEventListener("click", (e)=>
 {
 
+	
+// **********************************************************************
+				// CLEAR
+// **********************************************************************
+if (e.target.className.split(" ")[1] == "clear") {
+	lowerScreen.textContent = "0";
+	upperScreen.textContent = "";
+
+	accumulator = 0;
+	newOperand = 0;
+	savedOperator = "";
+}
+// **********************************************************************
+				// DELETE
+// **********************************************************************
+if (e.target.textContent == "DELETE") {
+
+	if (lowerScreen.textContent == "0")
+		return; 
+
+	if (lowerScreen.textContent.length == 1){ 
+		lowerScreen.textContent = "0";
+		return;
+	}
+	let toTrim = lowerScreen.textContent;
+	lowerScreen.textContent = toTrim.slice(0, toTrim.length-1);
+}
+// **********************************************************************
+
+
+if(lowerScreen.textContent.length > 12) {
+	noSpaceError();
+	return;
+}
 
 
 // **********************************************************************
@@ -47,6 +81,10 @@ if (e.target.className.split(" ")[1] == "operators") {
 	
 	newOperand = lowerScreen.textContent;
 
+	if (newOperand.slice(-1) === ".") return ;
+
+
+
 	if (accumulator == 0 && savedOperator == ""){
 		upperScreen.textContent = lowerScreen.textContent + e.target.textContent;
 		savedOperator = e.target.textContent;
@@ -55,21 +93,29 @@ if (e.target.className.split(" ")[1] == "operators") {
 		return;
 	}
 	
-	// if operator is just pressed before
-	if (operatorAlert == 1) {
-		return;
-	}
+	
 	
 	if (e.target.textContent == "=") {
+		if (operatorAlert == 1) return;
 		accumulator = operate(+accumulator, +newOperand, savedOperator);
 		lowerScreen.textContent = accumulator;
 		upperScreen.textContent = upperScreen.textContent + newOperand + e.target.textContent;
-
 		operatorAlert = 1; // operator is just pressed
-
+		
 		return;
 	}
-	
+
+	// if operator is just pressed before
+	if (operatorAlert == 1) {
+		savedOperator = e.target.textContent;
+		let upperText = upperScreen.textContent;
+		upperText = upperText.substring(0, upperText.length-1) + e.target.textContent;
+		upperScreen.textContent = upperText;
+		return;
+	}
+
+
+	// for the case of * / + and -
 	accumulator = operate(+accumulator, +newOperand, savedOperator);
 	lowerScreen.textContent = accumulator;
 	upperScreen.textContent = lowerScreen.textContent + e.target.textContent;
@@ -77,18 +123,8 @@ if (e.target.className.split(" ")[1] == "operators") {
 	savedOperator = e.target.textContent;
 
 	operatorAlert = 1;
-
-
-
-
-
-
 	
 }
-
-
-
-
 
 
 // **********************************************************************
@@ -106,48 +142,7 @@ if (e.target.textContent == ".") {
 	lowerScreen.textContent += e.target.textContent;
 	}
 }
-
-// **********************************************************************
-				// CLEAR
-// **********************************************************************
-
-
-if (e.target.className.split(" ")[1] == "clear") {
-	lowerScreen.textContent = "0";
-	upperScreen.textContent = "";
-
-	accumulator = 0;
-	newOperand = 0;
-	savedOperator = "";
-}
-// **********************************************************************
-				// DELETE
-// **********************************************************************
-
-if (e.target.textContent == "DELETE") {
-
-	if (lowerScreen.textContent == "0")
-		return; 
-
-	if (lowerScreen.textContent.length == 1){ 
-		lowerScreen.textContent = "0";
-		return;
-	}
-	let toTrim = lowerScreen.textContent;
-	lowerScreen.textContent = toTrim.slice(0, toTrim.length-1);
-}
 });
-// **********************************************************************
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -174,3 +169,6 @@ function operate(accumulator, newOperand, savedOperator){
 	return accumulator.toFixed(3);
 }
 
+function noSpaceError() {
+	console.log("no space available")
+}
