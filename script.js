@@ -165,10 +165,13 @@ function operate(accumulator, newOperand, savedOperator){
 	}
 	if (Number.isInteger(accumulator))
 		return accumulator;
+	
+	if ((accumulator+"").split(".")[1].length >= 6)
+	return accumulator.toFixed(9);
 
-	return accumulator.toFixed(3);
+	return accumulator;
 }
 
 function noSpaceError() {
-	console.log("no space available")
+	console.log("no space available");
 }
