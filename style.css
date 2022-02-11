@@ -32,12 +32,11 @@ body {
   font-family: Roboto, "Helvetica Neue";
 }
 .main-calculator {
-
   display: flex;
   justify-content: center;
   border: 1px solid var(--border);
   border-radius: 15px; 	
-  height: 648px;
+  height: 645px;
   width: 445px;
   padding: 20px;
   margin: 20px auto;
@@ -100,5 +99,9 @@ body {
 }
 .screen-and-buttons>.btn-delete:hover {
 	background-color: var(--btn-blue-hover);
+}
+.error-message{
+  text-align: center;
+  color: var(--black);
 }
 
